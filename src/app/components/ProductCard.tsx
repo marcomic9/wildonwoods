@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { ChevronLeft, ChevronRight, X, ZoomIn } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 
@@ -6,10 +6,9 @@ interface ProductCardProps {
   name: string;
   images: string[];
   description: string;
-  offset?: boolean;
 }
 
-export function ProductCard({ name, images, description, offset = false }: ProductCardProps) {
+export function ProductCard({ name, images, description }: ProductCardProps) {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [direction, setDirection] = useState(0);
   const [isLightboxOpen, setIsLightboxOpen] = useState(false);
@@ -29,24 +28,33 @@ export function ProductCard({ name, images, description, offset = false }: Produ
     paginate(1);
   };
 
+  // Preload images for instant switching
+  useEffect(() => {
+    images.forEach((src) => {
+      const img = new Image();
+      img.src = src;
+    });
+  }, [images]);
+
   const variants = {
     enter: (direction: number) => ({
-      opacity: 0,
-      scale: 0.98
+      x: direction > 0 ? '100%' : '-100%',
+      zIndex: 10
     }),
     center: {
-      zIndex: 1,
-      opacity: 1,
-      scale: 1,
+      x: 0,
+      zIndex: 10,
       transition: {
-        opacity: { duration: 0.4 }
+        x: { type: "spring", stiffness: 300, damping: 30 },
+        opacity: { duration: 0.2 }
       }
     },
     exit: (direction: number) => ({
+      x: direction < 0 ? '20%' : '-20%', // Slight parallax movement
       zIndex: 0,
-      opacity: 0,
       transition: {
-        opacity: { duration: 0.4 }
+        x: { type: "spring", stiffness: 300, damping: 30 },
+        opacity: { duration: 0.2 }
       }
     })
   };
@@ -59,14 +67,15 @@ export function ProductCard({ name, images, description, offset = false }: Produ
         viewport={{ once: true, margin: "-100px" }}
         transition={{ duration: 0.6 }}
         whileHover={{ y: -8 }}
-        className={`relative group ${offset ? 'md:mt-32' : ''} mb-8`}
+        className="relative group mb-8 h-full flex flex-col"
       >
         {/* Image Container with Arrow Overlays */}
         <div
           className="relative overflow-hidden bg-[#242424] rounded-2xl shadow-xl transition-transform duration-500 cursor-zoom-in group-hover:shadow-2xl grid grid-cols-1"
           onClick={() => setIsLightboxOpen(true)}
         >
-          <AnimatePresence initial={false} custom={direction} mode="popLayout">
+          {/* Main Image Carousel */}
+          <AnimatePresence initial={false} custom={direction}>
             <motion.img
               key={currentImageIndex}
               custom={direction}
@@ -76,7 +85,8 @@ export function ProductCard({ name, images, description, offset = false }: Produ
               exit="exit"
               src={images[currentImageIndex]}
               alt={name}
-              className="col-start-1 row-start-1 w-full h-auto object-cover transition-transform duration-700 group-hover:scale-105 block"
+              className="col-start-1 row-start-1 w-full h-auto object-cover block"
+              style={{ gridArea: "1 / 1" }} // Force stacking
             />
           </AnimatePresence>
 

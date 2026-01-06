@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { ProductCard } from './ProductCard';
 import { motion } from 'motion/react';
+import Masonry, { ResponsiveMasonry } from "react-responsive-masonry";
 
 
 type RoomType = 'all' | 'living-room' | 'kitchen' | 'bedroom' | 'bathroom';
@@ -178,78 +179,39 @@ export function Collection() {
           {filteredProducts.length} {filteredProducts.length === 1 ? 'Piece' : 'Pieces'} Available
         </motion.div>
 
-        {/* Asymmetrical Grid - Restored Artistic Layout */}
-        <motion.div
-          layout
-          className="space-y-32"
+        {/* Masonry Grid Layout - Restored with Premium Spacing */}
+        <ResponsiveMasonry
+          columnsCountBreakPoints={{ 350: 1, 750: 2, 900: 3 }}
         >
-          {filteredProducts.length > 0 ? (
-            <>
-              {/* Row 1 - Two columns with offset */}
-              {filteredProducts[0] && (
-                <div className="grid md:grid-cols-2 gap-12 md:gap-24">
-                  <div>
-                    <ProductCard key={filteredProducts[0].name} {...filteredProducts[0]} />
-                  </div>
-                  {filteredProducts[1] && (
-                    <div>
-                      <ProductCard key={filteredProducts[1].name} {...filteredProducts[1]} offset={true} />
-                    </div>
-                  )}
-                </div>
-              )}
+          <Masonry gutter="3rem">
+            {filteredProducts.length > 0 ? (
+              filteredProducts.map((product) => (
+                <ProductCard key={product.name} {...product} />
+              ))
+            ) : (
+              <div className="w-full text-center py-20">
+                <p className="text-2xl text-[#a8a8a0]" style={{ fontFamily: 'var(--font-serif)' }}>
+                  No pieces found in this category.
+                </p>
+              </div>
+            )}
+          </Masonry>
+        </ResponsiveMasonry>
 
-              {/* Row 2 - Single large item - Constrained to match other cards */}
-              {filteredProducts[2] && (
-                <div className="grid md:grid-cols-1 max-w-lg mx-auto">
-                  <ProductCard key={filteredProducts[2].name} {...filteredProducts[2]} />
-                </div>
-              )}
-
-              {/* Row 3 - Two columns with quote */}
-              {filteredProducts[3] && (
-                <div className="grid md:grid-cols-2 gap-12 md:gap-24 items-start">
-                  {filteredProducts[3] && <ProductCard key={filteredProducts[3].name} {...filteredProducts[3]} />}
-
-                  <div className="hidden md:block sticky top-32 pt-32">
-                    <blockquote
-                      className="text-4xl leading-tight text-[#a8a8a0] border-l-2 border-[#b8956a] pl-8"
-                      style={{ fontFamily: 'var(--font-serif)' }}
-                    >
-                      "Furniture that tells the story of Africa's soul."
-                    </blockquote>
-                    <p className="mt-6 text-[#b8956a] uppercase tracking-widest text-sm" style={{ fontFamily: 'var(--font-sans)' }}>
-                      — Wild on Woods Philosophy
-                    </p>
-                  </div>
-                </div>
-              )}
-
-              {/* Additional Products - Staggered Grid */}
-              {filteredProducts.length > 4 && (
-                <div className="grid md:grid-cols-2 gap-12 md:gap-24">
-                  {filteredProducts.slice(4).map((product, index) => (
-                    <ProductCard
-                      key={product.name}
-                      {...product}
-                      offset={index % 2 === 1}
-                    />
-                  ))}
-                </div>
-              )}
-            </>
-          ) : (
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              className="text-center py-20"
+        {/* Quote Block - Bottom Left */}
+        {filteredProducts.length > 0 && (
+          <div className="w-full max-w-lg mt-16 md:mt-24 text-left">
+            <blockquote
+              className="text-3xl leading-relaxed text-[#a8a8a0] border-l-4 border-[#b8956a] pl-8"
+              style={{ fontFamily: 'var(--font-serif)' }}
             >
-              <p className="text-2xl text-[#a8a8a0]" style={{ fontFamily: 'var(--font-serif)' }}>
-                No pieces found in this category.
-              </p>
-            </motion.div>
-          )}
-        </motion.div>
+              "Furniture that tells the story of Africa's soul."
+              <footer className="mt-4 text-[#b8956a] uppercase tracking-widest text-sm not-italic" style={{ fontFamily: 'var(--font-sans)' }}>
+                — Wild on Woods Philosophy
+              </footer>
+            </blockquote>
+          </div>
+        )}
 
         {/* Decorative Background Element */}
         <div className="absolute top-1/4 left-0 w-1/4 h-1/2 border border-[#b8956a]/10 -z-10 pointer-events-none" />
