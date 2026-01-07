@@ -11,75 +11,75 @@ export function Collection() {
 
   const products = [
     {
-      name: "The Kudu Coffee Table",
+      name: "Coffee Table",
       category: 'living-room' as RoomType,
       images: [
         "/images/products/coffee-table-1.jpg",
         "/images/products/coffee-table-2.jpg"
       ],
-      description: "Handcrafted from rich teak with a striking kudu silhouette. A centerpiece for gathering."
+      description: "A masterfully handcrafted teak centerpiece, blending organic silhouettes with timeless design for elegant gathering spaces."
     },
     {
-      name: "Giraffe Bathroom Towel Holder",
+      name: "Towel Holder",
       category: 'bathroom' as RoomType,
       images: [
         "/images/products/bathroom-towel-holder-1.jpg"
       ],
-      description: "Elegant giraffe neck design for holding your towels. Functional art for the bath."
+      description: "Sculptural functionality meets refined design, transforming everyday essentials into a statement of artistic utility."
     },
     {
-      name: "Rhino Dining Table",
+      name: "Dining Table",
       category: 'kitchen' as RoomType,
       images: [
         "/images/products/dining-table-1.jpg",
         "/images/products/dining-table-2.jpg",
         "/images/products/dining-table-3.jpg"
       ],
-      description: "A powerful statement piece featuring rhino silhouettes. Built for feasts and family."
+      description: "A commanding dining centerpiece of substantial proportions, crafted to host memorable gatherings with strength and sophistication."
     },
     {
-      name: "Wild Wall Art",
+      name: "Wall Art",
       category: 'living-room' as RoomType,
       images: [
         "/images/products/wall-art.jpg"
       ],
-      description: "Steel cut wall art depicting scenes from the bushveldt. A finishing touch for any room."
+      description: "Intricate steel craftsmanship capturing the essence of the wild, adding a sophisticated focal point to any interior."
     },
     {
-      name: "Leopard Bed Side Table",
+      name: "Bedside Table",
       category: 'bedroom' as RoomType,
       images: [
         "/images/products/bed-side-table-1.jpg"
       ],
-      description: "Sleek and sophisticated with a prowling leopard detail. Perfect for your bedside essentials."
+      description: "A sleek, contemporary bedside companion combining functional surface area with subtle, sophisticated artistic detailing."
     },
     {
-      name: "Safari Fruit Box",
+      name: "Fruit Box",
       category: 'kitchen' as RoomType,
       images: [
         "/images/products/fruit-box-1.jpg",
         "/images/products/fruit-box-2.jpg"
       ],
-      description: "Rustic wooden fruit box with intricate wildlife cutouts. Freshness meets wild beauty."
+      description: "An artisanal wooden accent piece featuring delicate cutouts, perfectly marrying rustic charm with refined craftsmanship."
     },
     {
-      name: "Buffalo Headboard",
+      name: "Headboard",
       category: 'bedroom' as RoomType,
       images: [
         "/images/products/bed-headboard-1.jpg"
       ],
-      description: "Strong and protective buffalo motif headboard. Dreams under the African sky."
+      description: "A robust and dignified bedroom statement, anchoring the space with a sense of enduring strength and natural calm."
     },
     {
-      name: "Savanna Mirror (Small)",
+      name: "Small Mirror",
       category: 'living-room' as RoomType,
       images: [
         "/images/products/living-room-mirror-2.png"
       ],
-      description: "A compact version of our wildlife mirror, perfect for any nook."
+      description: "A perfectly proportioned reflective accent, designed to bring light and depth to intimate spaces with subtle elegance."
     },
     {
-      name: "Elephant Dining Chair",
+      name: "Dining Chair",
       category: 'kitchen' as RoomType,
       images: [
         "/images/products/dining-chair-1.jpg",
@@ -87,15 +87,15 @@ export function Collection() {
         "/images/products/dining-chair-3.jpg",
         "/images/products/dining-chair-4.jpg"
       ],
-      description: "Majestic elephant tea-time chairs. Comfortable, durable, and uniquely African."
+      description: "Ergonomically crafted seating that harmonizes durability with a unique, culturally inspired aesthetic for the modern dining room."
     },
     {
-      name: "Savanna Mirror",
+      name: "Wall Mirror",
       category: 'living-room' as RoomType,
       images: [
         "/images/products/living-room-mirror-1.png"
       ],
-      description: "Reflect the beauty of your space with this wildlife-accented mirror."
+      description: "An expansive reflective surface framed by artistic accents, designed to amplify light and enhance spatial perception."
     }
   ];
 

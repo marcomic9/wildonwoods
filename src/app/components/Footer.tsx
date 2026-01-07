@@ -14,13 +14,13 @@ export function Footer() {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <h3 
+            <h3
               className="text-4xl md:text-5xl mb-6"
               style={{ fontFamily: 'var(--font-serif)' }}
             >
               Wild on Woods Factory
             </h3>
-            <p 
+            <p
               className="text-lg text-[#a8a8a0] mb-8 max-w-md leading-relaxed"
               style={{ fontFamily: 'var(--font-sans)' }}
             >
@@ -35,29 +35,29 @@ export function Footer() {
           </motion.div>
 
           {/* Right Column - Contact */}
-          <motion.div 
+          <motion.div
             className="md:text-right"
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <h4 
+            <h4
               className="text-2xl mb-8 text-[#f5f5f0]"
               style={{ fontFamily: 'var(--font-serif)' }}
             >
               Let's Create Together
             </h4>
-            
+
             {/* WhatsApp Button - Primary CTA */}
             <motion.a
-              href="https://wa.me/27000000000?text=Hello,%20I'm%20interested%20in%20commissioning%20a%20bespoke%20furniture%20piece"
+              href="https://wa.me/0828566269?text=Hello,%20I'm%20interested%20in%20commissioning%20a%20bespoke%20furniture%20piece"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-3 px-10 py-5 bg-[#b8956a] text-[#0a0a0a] hover:bg-[#c9a67a] transition-all duration-300 mb-6 group"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              animate={{ 
+              animate={{
                 y: [0, -5, 0],
               }}
               transition={{
@@ -90,15 +90,15 @@ export function Footer() {
 
         {/* Bottom Bar */}
         <div className="pt-8 border-t border-[#b8956a]/10 flex flex-col md:flex-row justify-between items-center gap-6">
-          <p 
+          <p
             className="text-sm text-[#a8a8a0]"
             style={{ fontFamily: 'var(--font-sans)' }}
           >
             © {new Date().getFullYear()} Wild on Woods Factory. All rights reserved.
           </p>
-          
+
           <div className="flex items-center gap-8">
-            <span 
+            <span
               className="text-sm text-[#a8a8a0] uppercase tracking-widest"
               style={{ fontFamily: 'var(--font-sans)' }}
             >
