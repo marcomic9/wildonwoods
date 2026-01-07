@@ -14,8 +14,8 @@ export function Collection() {
       name: "Coffee Table",
       category: 'living-room' as RoomType,
       images: [
-        "/images/products/coffee-table-1.jpg",
-        "/images/products/coffee-table-2.jpg"
+        "/images/products/coffee-table-1.webp",
+        "/images/products/coffee-table-2.webp"
       ],
       description: "A masterfully handcrafted teak centerpiece, blending organic silhouettes with timeless design for elegant gathering spaces."
     },
@@ -23,7 +23,7 @@ export function Collection() {
       name: "Towel Holder",
       category: 'bathroom' as RoomType,
       images: [
-        "/images/products/bathroom-towel-holder-1.jpg"
+        "/images/products/bathroom-towel-holder-1.webp"
       ],
       description: "Sculptural functionality meets refined design, transforming everyday essentials into a statement of artistic utility."
     },
@@ -31,9 +31,9 @@ export function Collection() {
       name: "Dining Table",
       category: 'kitchen' as RoomType,
       images: [
-        "/images/products/dining-table-1.jpg",
-        "/images/products/dining-table-2.jpg",
-        "/images/products/dining-table-3.jpg"
+        "/images/products/dining-table-1.webp",
+        "/images/products/dining-table-2.webp",
+        "/images/products/dining-table-3.webp"
       ],
       description: "A commanding dining centerpiece of substantial proportions, crafted to host memorable gatherings with strength and sophistication."
     },
@@ -41,7 +41,7 @@ export function Collection() {
       name: "Wall Art",
       category: 'living-room' as RoomType,
       images: [
-        "/images/products/wall-art.jpg"
+        "/images/products/wall-art.webp"
       ],
       description: "Intricate steel craftsmanship capturing the essence of the wild, adding a sophisticated focal point to any interior."
     },
@@ -49,7 +49,7 @@ export function Collection() {
       name: "Bedside Table",
       category: 'bedroom' as RoomType,
       images: [
-        "/images/products/bed-side-table-1.jpg"
+        "/images/products/bed-side-table-1.webp"
       ],
       description: "A sleek, contemporary bedside companion combining functional surface area with subtle, sophisticated artistic detailing."
     },
@@ -57,8 +57,8 @@ export function Collection() {
       name: "Fruit Box",
       category: 'kitchen' as RoomType,
       images: [
-        "/images/products/fruit-box-1.jpg",
-        "/images/products/fruit-box-2.jpg"
+        "/images/products/fruit-box-1.webp",
+        "/images/products/fruit-box-2.webp"
       ],
       description: "An artisanal wooden accent piece featuring delicate cutouts, perfectly marrying rustic charm with refined craftsmanship."
     },
@@ -66,7 +66,7 @@ export function Collection() {
       name: "Headboard",
       category: 'bedroom' as RoomType,
       images: [
-        "/images/products/bed-headboard-1.jpg"
+        "/images/products/bed-headboard-1.webp"
       ],
       description: "A robust and dignified bedroom statement, anchoring the space with a sense of enduring strength and natural calm."
     },
@@ -74,7 +74,7 @@ export function Collection() {
       name: "Small Mirror",
       category: 'living-room' as RoomType,
       images: [
-        "/images/products/living-room-mirror-2.png"
+        "/images/products/living-room-mirror-2.webp"
       ],
       description: "A perfectly proportioned reflective accent, designed to bring light and depth to intimate spaces with subtle elegance."
     },
@@ -82,10 +82,10 @@ export function Collection() {
       name: "Dining Chair",
       category: 'kitchen' as RoomType,
       images: [
-        "/images/products/dining-chair-1.jpg",
-        "/images/products/dining-chair-2.jpg",
-        "/images/products/dining-chair-3.jpg",
-        "/images/products/dining-chair-4.jpg"
+        "/images/products/dining-chair-1.webp",
+        "/images/products/dining-chair-2.webp",
+        "/images/products/dining-chair-3.webp",
+        "/images/products/dining-chair-4.webp"
       ],
       description: "Ergonomically crafted seating that harmonizes durability with a unique, culturally inspired aesthetic for the modern dining room."
     },
@@ -93,7 +93,7 @@ export function Collection() {
       name: "Wall Mirror",
       category: 'living-room' as RoomType,
       images: [
-        "/images/products/living-room-mirror-1.png"
+        "/images/products/living-room-mirror-1.webp"
       ],
       description: "An expansive reflective surface framed by artistic accents, designed to amplify light and enhance spatial perception."
     }

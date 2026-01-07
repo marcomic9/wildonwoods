@@ -11,7 +11,7 @@ export function Hero() {
       {/* Background Image with Overlay */}
       <div className="absolute inset-0">
         <img
-          src="/images/products/hero-bg.png"
+          src="/images/products/hero-bg.webp"
           alt="Luxury safari lodge interior"
           className="h-full w-full object-cover"
           fetchPriority="high"
