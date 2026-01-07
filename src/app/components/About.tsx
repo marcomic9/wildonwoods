@@ -1,6 +1,7 @@
 import { motion } from 'motion/react';
 import { useInView } from 'motion/react';
 import { useRef } from 'react';
+import { FrameAnimation } from './FrameAnimation';
 
 export function About() {
   const ref = useRef(null);
@@ -23,14 +24,7 @@ export function About() {
               whileHover={{ scale: 1.02 }}
               transition={{ duration: 0.3 }}
             >
-              <motion.img
-                initial={{ scale: 1.1 }}
-                animate={isInView ? { scale: 1 } : {}}
-                transition={{ duration: 1.2 }}
-                src="/images/products/about-maker.png"
-                alt="Artisan wood workshop"
-                className="w-full h-[500px] object-cover"
-              />
+              <FrameAnimation className="w-full h-[500px]" />
               {/* Overlapping accent element */}
               <motion.div
                 initial={{ opacity: 0, x: 20, y: 20 }}
