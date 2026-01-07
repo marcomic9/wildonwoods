@@ -20,6 +20,14 @@ export function Collection() {
       description: "Handcrafted from rich teak with a striking kudu silhouette. A centerpiece for gathering."
     },
     {
+      name: "Giraffe Bathroom Towel Holder",
+      category: 'bathroom' as RoomType,
+      images: [
+        "/images/products/bathroom-towel-holder-1.jpg"
+      ],
+      description: "Elegant giraffe neck design for holding your towels. Functional art for the bath."
+    },
+    {
       name: "Rhino Dining Table",
       category: 'kitchen' as RoomType,
       images: [
@@ -28,6 +36,47 @@ export function Collection() {
         "/images/products/dining-table-3.jpg"
       ],
       description: "A powerful statement piece featuring rhino silhouettes. Built for feasts and family."
+    },
+    {
+      name: "Wild Wall Art",
+      category: 'living-room' as RoomType,
+      images: [
+        "/images/products/wall-art.jpg"
+      ],
+      description: "Steel cut wall art depicting scenes from the bushveldt. A finishing touch for any room."
+    },
+    {
+      name: "Leopard Bed Side Table",
+      category: 'bedroom' as RoomType,
+      images: [
+        "/images/products/bed-side-table-1.jpg"
+      ],
+      description: "Sleek and sophisticated with a prowling leopard detail. Perfect for your bedside essentials."
+    },
+    {
+      name: "Safari Fruit Box",
+      category: 'kitchen' as RoomType,
+      images: [
+        "/images/products/fruit-box-1.jpg",
+        "/images/products/fruit-box-2.jpg"
+      ],
+      description: "Rustic wooden fruit box with intricate wildlife cutouts. Freshness meets wild beauty."
+    },
+    {
+      name: "Buffalo Headboard",
+      category: 'bedroom' as RoomType,
+      images: [
+        "/images/products/bed-headboard-1.jpg"
+      ],
+      description: "Strong and protective buffalo motif headboard. Dreams under the African sky."
+    },
+    {
+      name: "Savanna Mirror (Small)",
+      category: 'living-room' as RoomType,
+      images: [
+        "/images/products/living-room-mirror-2.png"
+      ],
+      description: "A compact version of our wildlife mirror, perfect for any nook."
     },
     {
       name: "Elephant Dining Chair",
@@ -41,61 +90,12 @@ export function Collection() {
       description: "Majestic elephant tea-time chairs. Comfortable, durable, and uniquely African."
     },
     {
-      name: "Leopard Bed Side Table",
-      category: 'bedroom' as RoomType,
-      images: [
-        "/images/products/bed-side-table-1.jpg"
-      ],
-      description: "Sleek and sophisticated with a prowling leopard detail. Perfect for your bedside essentials."
-    },
-    {
-      name: "Buffalo Headboard",
-      category: 'bedroom' as RoomType,
-      images: [
-        "/images/products/bed-headboard-1.jpg"
-      ],
-      description: "Strong and protective buffalo motif headboard. Dreams under the African sky."
-    },
-    {
-      name: "Giraffe Bathroom Towel Holder",
-      category: 'bathroom' as RoomType,
-      images: [
-        "/images/products/bathroom-towel-holder-1.jpg"
-      ],
-      description: "Elegant giraffe neck design for holding your towels. Functional art for the bath."
-    },
-    {
-      name: "Safari Fruit Box",
-      category: 'kitchen' as RoomType,
-      images: [
-        "/images/products/fruit-box-1.jpg",
-        "/images/products/fruit-box-2.jpg"
-      ],
-      description: "Rustic wooden fruit box with intricate wildlife cutouts. Freshness meets wild beauty."
-    },
-    {
       name: "Savanna Mirror",
       category: 'living-room' as RoomType,
       images: [
         "/images/products/living-room-mirror-1.png"
       ],
       description: "Reflect the beauty of your space with this wildlife-accented mirror."
-    },
-    {
-      name: "Savanna Mirror (Small)",
-      category: 'living-room' as RoomType,
-      images: [
-        "/images/products/living-room-mirror-2.png"
-      ],
-      description: "A compact version of our wildlife mirror, perfect for any nook."
-    },
-    {
-      name: "Wild Wall Art",
-      category: 'living-room' as RoomType,
-      images: [
-        "/images/products/wall-art.jpg"
-      ],
-      description: "Steel cut wall art depicting scenes from the bushveldt. A finishing touch for any room."
     }
   ];
 
@@ -112,7 +112,7 @@ export function Collection() {
     : products.filter(product => product.category === activeFilter);
 
   return (
-    <section id="collection" className="relative py-24 md:py-32 px-8 md:px-16 lg:px-24 bg-[#1a1a1a]">
+    <section id="collection" className="relative pt-24 pb-20 md:pt-32 md:pb-24 px-4 md:px-12 lg:px-16 bg-[#1a1a1a]">
       <div className="max-w-7xl mx-auto">
         {/* Section Header */}
         <motion.div
@@ -179,14 +179,18 @@ export function Collection() {
           {filteredProducts.length} {filteredProducts.length === 1 ? 'Piece' : 'Pieces'} Available
         </motion.div>
 
-        {/* Masonry Grid Layout - Restored with Premium Spacing */}
+        {/* Masonry Grid Layout - Pinterest Style */}
         <ResponsiveMasonry
           columnsCountBreakPoints={{ 350: 1, 750: 2, 900: 3 }}
         >
-          <Masonry gutter="3rem">
+          <Masonry gutter="2rem">
             {filteredProducts.length > 0 ? (
-              filteredProducts.map((product) => (
-                <ProductCard key={product.name} {...product} />
+              filteredProducts.map((product, index) => (
+                <ProductCard
+                  key={product.name}
+                  {...product}
+                  layoutVariant={index % 2 === 0 ? 'bottom-left' : 'bottom-centered'}
+                />
               ))
             ) : (
               <div className="w-full text-center py-20">
@@ -197,21 +201,6 @@ export function Collection() {
             )}
           </Masonry>
         </ResponsiveMasonry>
-
-        {/* Quote Block - Bottom Left */}
-        {filteredProducts.length > 0 && (
-          <div className="w-full max-w-lg mt-16 md:mt-24 text-left">
-            <blockquote
-              className="text-3xl leading-relaxed text-[#a8a8a0] border-l-4 border-[#b8956a] pl-8"
-              style={{ fontFamily: 'var(--font-serif)' }}
-            >
-              "Furniture that tells the story of Africa's soul."
-              <footer className="mt-4 text-[#b8956a] uppercase tracking-widest text-sm not-italic" style={{ fontFamily: 'var(--font-sans)' }}>
-                — Wild on Woods Philosophy
-              </footer>
-            </blockquote>
-          </div>
-        )}
 
         {/* Decorative Background Element */}
         <div className="absolute top-1/4 left-0 w-1/4 h-1/2 border border-[#b8956a]/10 -z-10 pointer-events-none" />
